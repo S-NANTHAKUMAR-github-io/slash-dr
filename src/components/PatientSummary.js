@@ -9,7 +9,7 @@ function PatientSummary() {
 const MainPage=styled.div`
 position:relative;
 top:170%;
-background-color:#333;
+background-color:#fff;
 height:200vh;
 width:100%;
 `;

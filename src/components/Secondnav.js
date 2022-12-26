@@ -11,7 +11,7 @@ function Secondnav() {
   return (
     <>
         <Navsecond>
-    <Name>Mr.R. Ranjithkumar Rajaperumal,22/M</Name>
+    <Name>Mr.R. Ranjithkumar Rajaperumal, 22/M</Name>
     <Navdetails>
         <Link to="/">
             <Data>Profile</Data></Link>
@@ -66,6 +66,7 @@ const Navdetails=styled.div`
     display:grid;
     grid-gap:20px;
     display:flex;
+    text-decoration: none;
 `;
 const Navsecond=styled.div`
     position:relative;

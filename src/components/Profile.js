@@ -8,8 +8,8 @@ function Profile() {
 const MainPage=styled.div`
 position:relative;
 top:170%;
-background-color:#333;
-height:100%;
+background-color:#fff;
+height:200vh%;
 width:100%;
 `;
 export default Profile

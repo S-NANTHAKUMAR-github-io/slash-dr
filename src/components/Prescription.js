@@ -21,8 +21,11 @@ function Prescription() {
                     <Title2>
                         Preview Selected
                         <Button2>Proceed with this</Button2>
-                        <Line2/>
                     </Title2>
+                    <Line2/>
+                    <Details2>
+
+                    </Details2>
                 </Card2>
             </Left>
         </MainPage>
@@ -61,8 +64,7 @@ const Button2=styled.button`
     padding:7px 12px 5px 12px;
 `;
 const Line2=styled.div`
-    right:15px;
-    top:50px;
+    top:70px;
     position:absolute;
     height:0.1px;
     background-color:#D8D9CF;
@@ -96,6 +98,7 @@ const Title=styled.div`
     font-family: 'Poppins', sans-serif;
 `;
 const Details=styled.div``;
+const Details2=styled.div``;
 const Card=styled.div`
     position:relative;
     top:5%;
@@ -118,10 +121,10 @@ overflow-y:auto;
 `;
 const Right=styled.div`
     flex:1;
-    height:180vh;
+    height:170vh;
 `;
 const Left=styled.div`
     flex:1;
-    height:180vh
+    height:170vh
 `;
 export default Prescription
