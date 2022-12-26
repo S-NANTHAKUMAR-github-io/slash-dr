@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Multiselect from 'multiselect-react-dropdown';
 
 function Prescription() {
   return (
@@ -12,7 +13,45 @@ function Prescription() {
                 </Title>
                 <Line/>
                 <Details>
-
+                <Multiselect
+  displayValue="key"
+  groupBy="cat"
+  onKeyPressFn={function noRefCheck(){}}
+  onRemove={function noRefCheck(){}}
+  onSearch={function noRefCheck(){}}
+  onSelect={function noRefCheck(){}}
+  options={[
+    {
+      cat: 'Last filled Prescription',
+      key: '23 Nov 2022'
+    },
+    {
+      cat: 'Last filled Prescription',
+      key: '17 Nov 2022'
+    },
+    {
+      cat: 'Last filled Prescription',
+      key: '28 Sep 2022'
+    },
+    {
+      cat: 'COPD',
+      key: 'Option 4'
+    },
+    {
+      cat: 'COPD',
+      key: 'Option 5'
+    },
+    {
+      cat: 'COPD',
+      key: 'Option 6'
+    },
+    {
+      cat: 'COPD',
+      key: 'Option 7'
+    }
+  ]}
+  showCheckbox
+/>
                 </Details>
                 </Card>
             </Right>
@@ -97,7 +136,10 @@ const Title=styled.div`
     left:15px;
     font-family: 'Poppins', sans-serif;
 `;
-const Details=styled.div``;
+const Details=styled.div`
+    position:relative;
+    top:5%;
+`;
 const Details2=styled.div``;
 const Card=styled.div`
     position:relative;
