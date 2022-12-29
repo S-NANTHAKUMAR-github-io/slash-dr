@@ -56,25 +56,35 @@ const Data=styled.div`
     left:25px;
     position:relative;
     display:flex;
+    text-decoration: none;
+    &:hover{
+        color:#4B56D2;
+        transform: scale(1.05);
+        transition: 0.3s ease;
+    }
+    &:active::after{
+        color:#4B56D2;
+    }
 `;
-const Navdetails=styled.div`
+const Navdetails=styled(Link)`
     position:relative;
     top:10px;
     height:56px;
     width:100%;
-    background-color:#F3EFE0;
+    background-color:#fafafa;
     display:grid;
     grid-gap:20px;
     display:flex;
-    text-decoration: none;
+    textDecoration: none;
 `;
 const Navsecond=styled.div`
     position:relative;
-    background-color:#F3EFE0;
+    background-color:#fafafa;
     top:100%;
     width:100%;
     height:10%;
-    
+    overflow-x:hidden;
+    overflow-y:hidden;
 `;
 const Name=styled.div`
     font-size:19px;
