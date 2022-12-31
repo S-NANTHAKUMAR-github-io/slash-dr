@@ -26,16 +26,17 @@ function Navbar() {
 const Icon=styled.div`
     position:relative;
     left:94%;
-    bottom:15px;
+    bottom:23px;
     height:15px;
     width:15px; 
     color:#fff;
+    //overflow-y:hidden;
 `;
 
 const Icon2=styled.div`
     position:relative;
     left:97%;
-    bottom:30px;
+    bottom:37px;
     height:15px;
     width:15px; 
     color:#fff;
@@ -47,8 +48,8 @@ const Circle=styled.div`
         height:40px;
         width:40px; 
         left:10px;
-        top:19px;
-        bottom:5%;  
+        top:5px;
+        //bottom:5px;  
     }
 `;
 const Navtab1=styled.div`
@@ -58,10 +59,11 @@ const Navtab1=styled.div`
     overflow-x:hidden;
 `;
 const Navup=styled.div`
-    background-color:#272e4f;
-    height:10%;
+    background-color:#151D3B;
+    height:50px;
     width:100%;
     position:relative;
+    overflow-y:hidden;
 
 `;
 

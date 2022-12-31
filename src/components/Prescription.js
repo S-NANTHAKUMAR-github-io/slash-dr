@@ -5,36 +5,52 @@ import 'react-treeview/react-treeview.css';
 import data from "../details.json";
 import React, { useState } from "react";
 
+const INITIAL_LIST = Array.from({ length: 75 }, () => false);
+const COUNT_LIST = Array.from({ length: 75 }, () => 0);
+
 
 function Prescription() {
     const [userinfo, setUserInfo] = useState({
         languages: [],
         response: [],
       });
+
+      const [list] = useState(INITIAL_LIST)
       
-      const handleOnChange = (e,name) => {
+      const handleOnChange = (e,name,i) => {
         // Destructuring
-        const { value, checked } = e.target;
         const { languages } = userinfo;
-        //const { response } = userinfo;
-          
-        console.log(`${value} is ${checked}`);
-         
+        const { response } = userinfo;
+
+        const {  checked } = e.target;
+        
+
+        console.log(` ${checked}`);
+
         // Case 1 : The user checks the box
         if (checked) {
+          COUNT_LIST[i]+=1;
           setUserInfo({
             languages: [...languages, name],
-            response: [...languages, name],
+            response: [...response, name]
           });
         }
       
         // Case 2  : The user unchecks the box
         else {
+          COUNT_LIST[i]-=1;
           setUserInfo({
-            languages: languages.filter((e) => e !== value),
-            response: languages.filter((e) => e !== value),
+            languages: languages.filter((e) => e !== name),
+            response: response.filter((e) => e !== name)
           });
         }
+
+        if(COUNT_LIST[i]>0){
+      INITIAL_LIST[i]=true;
+    }else{
+      INITIAL_LIST[i]=false;
+    }
+
       };
 
   return (
@@ -48,40 +64,30 @@ function Prescription() {
                 <Line/>
                 <Details>
                 {data.map((node,i)=>{
-                    const type=i;
-                    const label=<><input type="checkbox" id="mycheck" /><span>Patient {i}</span></>
+                    //const type=i;
+                    const label=<><input type="checkbox" checked={list[i]} id="mycheck" /><span>Patient {i}</span></>
                     return(
                       <TreeView
-                        key={type+"|"+i}
                         nodeLabel={label}
                         defaultCollapsed={true}>
                                   <input
                                     type="checkbox"
-                                    id="topping"
-                                    name="topping"
-                                    onChange={(e)=>handleOnChange(e,node.id)}
+                                    onChange={(e)=>handleOnChange(e,node.id,i)}
+                                    />{node.id}<br/>
 
-                                  />{node.id}<br/>
                                   <input
                                     type="checkbox"
-                                    id="topping"
-                                    name="topping"
-                                    onChange={(e)=>handleOnChange(e,node.name)}
-                                    
+                                    onChange={(e)=>handleOnChange(e,node.name,i)}                                    
                                   />{node.name}<br/>
+                                
                                   <input
-                                    type="checkbox"
-                                    id="topping"
-                                    name="topping"
-                                    onChange={(e)=>handleOnChange(e,node.diagnosis_category)}
-                                    
+                                    type="checkbox"                                                                       
+                                    onChange={(e)=>handleOnChange(e,node.diagnosis_category,i)}                                    
                                   />{node.diagnosis_category}<br/>
+
                                   <input
                                     type="checkbox"
-                                    id="topping"
-                                    name="topping"
-                                    onChange={(e)=>handleOnChange(e,node.diagnosis_tags)}
-                                    
+                                    onChange={(e)=>handleOnChange(e,node.diagnosis_tags,i)}                                   
                                   />{node.diagnosis_tags}
                         </TreeView>
                     )
@@ -89,43 +95,35 @@ function Prescription() {
                 </Details>
                 </Card>
             </Right>
+
             <Left>
                 <Card2>
                     <Title2>
                         Preview Selected
-                        <Button2>Proceed with this</Button2>
+                        <Button2>Proceed with {userinfo.response.length} </Button2>
                     </Title2>
                     <Line2/>
-                    <Details2>
-                    <StyledTextarea
-                
-                name="response"
-                value={userinfo.response}
-                //placeholder="The checkbox values will be displayed here "
-                id="floatingTextarea2"
-                style={{ height: "255px", 
-                        width:"520px",border:"none", position:"relative"
-                      }}
-                onChange={handleOnChange}
-              ></StyledTextarea>
 
-                    </Details2>
-                </Card2>
+
+              <Details2>
+
+                    {userinfo.response.map((rnode)=>{
+                        console.log(rnode)
+                        return(
+                        <p>{rnode}</p>
+                        )
+                    })}
+
+              </Details2>
+
+
+              </Card2>
             </Left>
         </MainPage>
 
 
   );
 }
-
-const StyledTextarea=styled.textarea`
-  position:relative;
-  font-family: 'Poppins', sans-serif;
-  font-weight:500;
-  justify-content: space-between;
-  font-size:15px;
-`;
-
 
 const Card2=styled.div`
     position:relative;
@@ -200,15 +198,18 @@ const Details=styled.div`
 const Details2=styled.div`
     position:relative;
     top:15%;
-    height:50vh;
+    height:100%;
+    width:100%
     font-family: 'Poppins', sans-serif;
     font-weight:500;
+    left:10px;
+    line-height:10px;
 `;
 const Card=styled.div`
     position:relative;
     top:5%;
     left:10%;
-    height:320vh;
+    height:350vh;
     width:80vh;
     border-radius:5px;
     background-color:#ffffff;
@@ -219,14 +220,14 @@ const Card=styled.div`
 `;
 
 const MainPage=styled.div`
-position:relative;
-top:250%;
-background-color:#fafafa;
-width:100%;
-display:flex;
-overflow:scroll;
-overflow-y:auto;
-overflow-x:hidden;
+    position:relative;
+    top:250%;
+    background-color:#fafafa;
+    width:100%;
+    display:flex;
+    overflow:scroll;
+    overflow-y:auto;
+    overflow-x:hidden;
 `;
 const Right=styled.div`
     flex:1;

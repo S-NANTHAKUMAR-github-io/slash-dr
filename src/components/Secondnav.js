@@ -13,8 +13,7 @@ function Secondnav() {
         <Navsecond>
     <Name>Mr.R. Ranjithkumar Rajaperumal, 22/M</Name>
     <Navdetails>
-        <Link to="/">
-            <Data>Profile</Data></Link>
+        <Link to="/"><Data>Profile</Data></Link>
         <Link to="/Patientsummary"><Data>Patient Summary</Data></Link>
         <Link to="/Thisvisit"><Data>This Visit</Data></Link>
         <Link to="/Prescription"><Data>Prescription</Data></Link>
@@ -22,7 +21,7 @@ function Secondnav() {
     </Navdetails>
     </Navsecond>
     <Line/>
-    <Router>
+    
     <Routes>
         <Route path="/" element={<Profile/>}/>
         <Route path="/Patientsummary" element={<PatientSummary/>}/>
@@ -30,7 +29,7 @@ function Secondnav() {
         <Route path="/Prescription" element={<Prescription/>}/>
         <Route path="/Printingprescription" element={<Printingprescription/>}/>
     </Routes>
-    </Router>
+    
     
     </>                                                                        
   )
@@ -42,28 +41,24 @@ const Line=styled.div`
     width:100%;
     position:relative;
 `;
-const Router=styled.div`
-    position:relative;
-    top:50%;
-    height:100%;
-    width:100%;
-`;
+
 const Data=styled.div`
     color:#333;
-    font-weight:500;
+    font-weight:520;
     font-family: 'Poppins', sans-serif;
+    font-size:13px;
     top:10px;
     left:25px;
     position:relative;
     display:flex;
     text-decoration: none;
     &:hover{
-        color:#4B56D2;
+        color:#0096FF;
         transform: scale(1.05);
         transition: 0.3s ease;
     }
-    &:active::after{
-        color:#4B56D2;
+    &:active:after{
+        color:#0096FF;
     }
 `;
 const Navdetails=styled(Link)`
@@ -87,12 +82,13 @@ const Navsecond=styled.div`
     overflow-y:hidden;
 `;
 const Name=styled.div`
-    font-size:19px;
+    font-size:20px;
     font-family:bold;
     font-family: 'Poppins', sans-serif;
     position:relative;
     left:2%;
     top:10px;
+    font-weight:500;
 
 `;
 export default Secondnav
