@@ -46,10 +46,11 @@ function Prescription() {
         }
 
         if(COUNT_LIST[i]>0){
-      INITIAL_LIST[i]=true;
-    }else{
-      INITIAL_LIST[i]=false;
-    }
+          INITIAL_LIST[i]=true;
+        }
+        else{
+          INITIAL_LIST[i]=false;
+        }
 
       };
 
@@ -133,7 +134,7 @@ const Card2=styled.div`
     width:80vh;
     border-radius:5px;
     background-color:#FFFFFF;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 `;
 
 const Title2=styled.div`
@@ -203,17 +204,17 @@ const Details2=styled.div`
     font-family: 'Poppins', sans-serif;
     font-weight:500;
     left:10px;
-    line-height:10px;
+    line-height:20px;
 `;
 const Card=styled.div`
     position:relative;
     top:5%;
     left:10%;
-    height:350vh;
+    height:330vh;
     width:80vh;
     border-radius:5px;
     background-color:#ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
     // overflow:scroll;
     // overflow-y:auto;
     // overflow-x:hidden;
@@ -223,6 +224,7 @@ const MainPage=styled.div`
     position:relative;
     top:250%;
     background-color:#fafafa;
+    height:100%;
     width:100%;
     display:flex;
     overflow:scroll;
