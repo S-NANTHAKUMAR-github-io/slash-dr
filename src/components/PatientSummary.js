@@ -12,5 +12,8 @@ top:170%;
 background-color:#fff;
 height:200vh;
 width:100%;
+text-align:center;
+top:200px;
+font-size:25px;
 `;
 export default PatientSummary
