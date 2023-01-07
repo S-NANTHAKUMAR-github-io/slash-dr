@@ -1,3 +1,14 @@
+The processes i have gone through in this task:
+
+1)I have used React styled component modules which helps to avoid className confusions and helps to write the particular component CSS on that page itself.
+
+2)And in Navbar i have included all mentioned pages using (Routes) which is third party Library, which redirects form one page to another.
+
+3)And then the given prescription page was created using (React Tree View modules).
+
+4)The json datas which i have rendered using (map) function.
+
+5)The displaying the selected Checkbox was handled using React useState(Hooks Method) and Event handling method.
 ![Output page](https://user-images.githubusercontent.com/87605162/210179349-7abe1c91-9590-442a-8421-21a24052ba38.png)
 
 # Getting Started with Create React App
