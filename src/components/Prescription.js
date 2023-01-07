@@ -2,7 +2,8 @@
 import styled from 'styled-components'
 import TreeView from 'react-treeview';
 import 'react-treeview/react-treeview.css';
-import data from "../details.json";
+import data from "../components/datasourse.json";
+//import date from "./dates.json";
 import React, { useState } from "react";
 
 const INITIAL_LIST = Array.from({ length: 75 }, () => false);
@@ -17,7 +18,7 @@ function Prescription() {
 
       const [list] = useState(INITIAL_LIST)
       
-      const handleOnChange = (e,name,i) => {
+      const handleOnChange = (e,name1,i) => {
         // Destructuring
         const { languages } = userinfo;
         const { response } = userinfo;
@@ -31,8 +32,8 @@ function Prescription() {
         if (checked) {
           COUNT_LIST[i]+=1;
           setUserInfo({
-            languages: [...languages, name],
-            response: [...response, name]
+            languages: [...languages, name1],
+            response: [...response, name1]
           });
         }
       
@@ -40,8 +41,8 @@ function Prescription() {
         else {
           COUNT_LIST[i]-=1;
           setUserInfo({
-            languages: languages.filter((e) => e !== name),
-            response: response.filter((e) => e !== name)
+            languages: languages.filter((e) => e !== name1),
+            response: response.filter((e) => e !== name1)
           });
         }
 
@@ -65,33 +66,60 @@ function Prescription() {
                 <Line/>
                 <Details>
                 {data.map((node,i)=>{
-                    //const type=i;
-                    const label=<><input type="checkbox" checked={list[i]} id="mycheck" /><span>Patient {i}</span></>
+                    const type=node.type;
+                    const label=<><input type="checkbox" checked={list[i]} id="mycheck" /><span> {type}</span></>
                     return(
                       <TreeView
+                      key={type + "|" +i}
                         nodeLabel={label}
                         defaultCollapsed={true}>
-                                  <input
-                                    type="checkbox"
-                                    onChange={(e)=>handleOnChange(e,node.id,i)}
-                                    />{node.id}<br/>
 
-                                  <input
+                          {node.tags.map((person)=> {
+                          const label2 = <><input type="hidden" id="mycheck"/><span>{person.diagnosis_tags}</span> </>
+                            return(
+                              <TreeView
+                                nodeLabel={label2}
+                                key={person.diagnosis_tags}
+                                defaultCollapsed={true}>
+
+                                  <input 
                                     type="checkbox"
-                                    onChange={(e)=>handleOnChange(e,node.name,i)}                                    
-                                  />{node.name}<br/>
+                                    onChange={(e)=>handleOnChange(e,person.name1,i )}/>{person.name1}<br />
+
+                              </TreeView>
+
+                            );
+                          })}
+
+
+
+
+                                  {/* <input */}
+                                    {/* type="checkbox" */}
+                                    {/* onChange={(e)=>handleOnChange(e,node.id,i)} */}
+                                  {/* />{node.id}<br/> */}
+
+                                  {/* <input */}
+                                    {/* type="checkbox" */}
+                                    {/* onChange={(e)=>handleOnChange(e,node.name,i)}                                     */}
+                                  {/* />{node.name}<br/> */}
                                 
-                                  <input
-                                    type="checkbox"                                                                       
-                                    onChange={(e)=>handleOnChange(e,node.diagnosis_category,i)}                                    
-                                  />{node.diagnosis_category}<br/>
+                                  {/* <input */}
+                                    {/* type="checkbox"                                                                      */}
+                                    {/* onChange={(e)=>handleOnChange(e,node.diagnosis_category,i)}                                     */}
+                                  {/* />{node.diagnosis_category}<br/> */}
 
-                                  <input
-                                    type="checkbox"
-                                    onChange={(e)=>handleOnChange(e,node.diagnosis_tags,i)}                                   
-                                  />{node.diagnosis_tags}
-                        </TreeView>
-                    )
+                                  {/* <input */}
+                                    {/* type="checkbox" */}
+                                    {/* onChange={(e)=>handleOnChange(e,node.diagnosis_tags,i)}                                    */}
+                                  {/* />{node.diagnosis_tags} */}
+
+
+
+</TreeView>
+
+                       
+                    );
                   })}
                 </Details>
                 </Card>
@@ -114,6 +142,7 @@ function Prescription() {
                         <p>{rnode}</p>
                         )
                     })}
+                    {/* {userinfo.response} */}
 
               </Details2>
 
@@ -200,7 +229,7 @@ const Details2=styled.div`
     position:relative;
     top:15%;
     height:100%;
-    width:100%
+    width:100%;
     font-family: 'Poppins', sans-serif;
     font-weight:500;
     left:10px;
@@ -237,6 +266,6 @@ const Right=styled.div`
 `;
 const Left=styled.div`
     flex:1;
-    height:170vh
+    height:170vh;
 `;
 export default Prescription

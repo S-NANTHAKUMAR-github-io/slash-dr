@@ -1,0 +1,186 @@
+[
+    {
+        "type":"Last filled prescription",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"Date",
+                "name1":"23 Nov 2022"
+            },
+            {
+                "diagnosis_tags":"Date",
+                "name1":"17 Nov 2022"
+            },
+            {
+                "diagnosis_tags":"Date",
+                "name1":"28 Sep 2022"
+            }
+        ]
+    },
+    {
+        "type":"COPD",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"Acute Exacerbation",
+                "name1":"COPD - Acute Exacerbation - Antibiotic-Steroid",
+                "name2":"COPD - Acute Exacerbation - Antibiotics"
+            },
+            {
+                "diagnosis_tags":"Cor Pulmonale",
+                "name1":"COPD - Cor Pulmonale2"
+            },
+            {
+                "diagnosis_tags":"Severe-Oral",
+                "name1":"COPD - Severe-Oral1"
+            },
+            {
+                "diagnosis_tags":"Severe-Nebuliser",
+                "name1":"COPD - Severe-Nebuliser"
+            },
+            {
+                "diagnosis_tags":"Severe-MDI",
+                "name1":"COPD - Severe-MDI"
+            },
+            {
+                "diagnosis_tags":"Severe-DPI",
+                "name1":"COPD - Severe-DPI"
+            },
+            {
+                "diagnosis_tags":"Mild-Oral",
+                "name1":"COPD - Mild-Oral"
+            },
+            {
+                "diagnosis_tags":"Mild-Nebuliser",
+                "name1":"COPD - Mild-Nebuliser"
+            },
+            {
+                "diagnosis_tags":"Mild-MDI",
+                "name1":"COPD - Mild-MDI"
+            },
+            {
+                "diagnosis_tags":"Mild-DPI",
+                "name1":"COPD - Mild-DPI"
+            }
+
+              
+        ]
+    },
+    {
+        "type":"COVID",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"ANTI VIRAL",
+                "name1":"Ivermectin",
+                "name2":"Doxycycline",
+                "name3":"FAVIPIRAVIR"
+                 
+            },
+            {
+                "diagnosis_tags":"ANTI HISTAMINE H1",
+                "name1":"Fexofenadine",
+                "name2":"Levocetrizine",
+                "name3":"Cetrizine"
+            },
+            {
+                "diagnosis_tags":"Default",
+                "name1":"Low",
+                "name2":"High",
+                "name3":""
+            },
+            {
+                "diagnosis_tags":"Vitamins",
+                "name1":"All"
+            },
+            {
+                "diagnosis_tags":"Anxiolytics",
+                "name1":"Melatonin And Alprazolam",
+                "name2":"Zolpidem"
+            },
+            {
+                "diagnosis_tags":"PPI",
+                "name1":"Rabeprazole",
+                "name2":"Esomeprazole"
+            },
+            {
+                "diagnosis_tags":"ANTI HISTAMINE H2",
+                "name1":"Famotidine",
+                "name2":"Ranitidine"
+                
+            },
+            {
+                "diagnosis_tags":"ANTI INFLAMMATORY",
+                "name1":"Prednisolone",
+                "name2":"Deflazacort",
+                "name3":"Methyl Prednisolone"              
+            },
+            {
+                "diagnosis_tags":"ANTI COAGULANTS",
+                "name1":"Anti Platelet Agents",
+                "name2":"Apixaban",
+                "name3":"DABIGATRAN"
+            }
+            
+        ]
+    },
+    {
+        "type":"Others",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"Anaemia",
+                "name1":"Iron + B12"
+                 
+            }
+        ]
+    },
+    {
+        "type":"HEMOPTYSIS",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"AMild To Moderate",
+                "name1":"HEMOPTYSIS1"              
+            }
+        ]
+    },
+    {
+        "type":"TB",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"IP Individual drugs",
+                "name1":"TB - IP Individual drugs"              
+            },
+            {
+                "diagnosis_tags":"IP FDC",
+                "name1":"TB - IP FDC"     
+
+            },
+            {
+                "diagnosis_tags":"CP Individual drugs",
+                "name1":"TB - CP Individual drugs"     
+            },
+            {
+                "diagnosis_tags":"CP FDC",
+                "name1":"TB - CP FDC"     
+            },
+            {
+                "diagnosis_tags":"ATT Hepato Protective Regimen",
+                "name1":"TB - ATT Hepato Protective Regimen"     
+            }
+
+        ]
+    },
+    {
+        "type":"HEMOPTYSIS",
+        "collapsed":"false",
+        "tags":[
+            {
+                "diagnosis_tags":"AMild To Moderate",
+                "name1":"HEMOPTYSIS1"              
+            }
+        ]
+    }
+]
