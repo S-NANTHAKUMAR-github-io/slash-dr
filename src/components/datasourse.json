@@ -1,23 +1,5 @@
 [
     {
-        "type":"Last filled prescription",
-        "collapsed":"false",
-        "tags":[
-            {
-                "diagnosis_tags":"Date",
-                "name1":"23 Nov 2022"
-            },
-            {
-                "diagnosis_tags":"Date",
-                "name1":"17 Nov 2022"
-            },
-            {
-                "diagnosis_tags":"Date",
-                "name1":"28 Sep 2022"
-            }
-        ]
-    },
-    {
         "type":"COPD",
         "collapsed":"false",
         "tags":[
@@ -174,12 +156,129 @@
         ]
     },
     {
-        "type":"HEMOPTYSIS",
+        "type":"Bronchiectasis",
         "collapsed":"false",
         "tags":[
             {
-                "diagnosis_tags":"AMild To Moderate",
-                "name1":"HEMOPTYSIS1"              
+                "diagnosis_tags":"Acute Exacerbation",
+                "name1":"Bronchiectasis - Acute Exacerbation - Antibiotic-Steroid"              
+            },
+            {
+                "diagnosis_tags":"Cor Pulmonale",
+                "name1":"Bronchiectasis - Cor Pulmonale"         
+            },
+            {
+                "diagnosis_tags":"Severe-MDI",
+                "name1":"Bronchiectasis - Severe-MDI"      
+            },
+            {
+                "diagnosis_tags":"Severe-MDI",
+                "name1":"Bronchiectasis - Severe-MDI"
+            },
+            {
+               "diagnosis_tags":"Severe-DPI",
+               "name1":"Bronchiectasis - Severe-DPI"
+            },
+            {
+               "diagnosis_tags":"Mild-Oral",
+               "name1":"Bronchiectasis - Mild-Oral"
+            },
+            {
+                "diagnosis_tags":"Mild-Nebuliser",
+                "name1":"Bronchiectasis - Mild-Nebuliser"
+            },
+            {
+                "diagnosis_tags":"Mild-MDI",
+                "name1":"Bronchiectasis - Mild-MDI"
+            },
+            {
+                "diagnosis_tags":"Mild-DPI",
+                "name1":"Bronchiectasis - Mild-DPI"
+            },
+            {
+                "diagnosis_tags":"Severe-Nebuliser",
+                "name1":"Bronchiectasis - Severe-Nebuliser"
+            },
+            {
+                "diagnosis_tags":"Severe-Oral",
+                "name1":"Bronchiectasis - Severe-Oral"
+            }
+
+        ]
+    },
+    {
+    "type":"Asthma",
+    "collapsed":"false",
+    "tags":[
+            {
+                "diagnosis_tags":"Acute Exacerbation",
+                "name1":"Asthma - Acute Exacerbation - Antibiotic-Steroid"              
+            },
+            {
+                "diagnosis_tags":"Cor Pulmonale",
+                "name1":"Asthma - Cor Pulmonale"         
+            },
+            {
+                "diagnosis_tags":"Severe-DPI",
+                "name1":"Asthma - Severe-DPI" 
+            },
+            {
+                "diagnosis_tags":"Severe-Oral",
+                "name1":"Asthma - Severe-Oral" 
+            },
+            {
+                "diagnosis_tags":"Severe-Nebuliser",
+                "name1":"Asthma - Severe-Nebuliser" 
+            },
+            {
+                "diagnosis_tags":"Severe-MDI",
+                "name1":"Asthma - Severe-MDI" 
+            },
+            {
+                "diagnosis_tags":"Mild-Oral",
+                "name1":"Asthma - Mild-Oral" 
+            },
+            {
+                "diagnosis_tags":"Mild-Nebuliser",
+                "name1":"Asthma - Mild-Nebuliser" 
+            },
+            {
+                "diagnosis_tags":"Mild-MDI",
+                "name1":"Asthma - Mild-MDI" 
+            },
+            {
+                "diagnosis_tags":"Mild-DPI",
+                "name1":"Asthma - Mild-DPI" 
+            }
+        ]
+    },
+    {
+     "type":"URTI",
+     "collapsed":"false",
+     "tags":[
+            {
+                "diagnosis_tags":"Sinusitis",
+                "name1":"URTI - Sinusitis - Antibiotic 1",
+                "name2":"URTI - Sinusitis - Antibiotic 2" ,
+                "name3":"URTI - Sinusitis - Antibiotic 3"             
+            }
+     ]
+    },
+    {
+    "type":"Allergic Rhinitis",
+    "collapsed":"false",
+    "tags":[
+            {
+                "diagnosis_tags":"Oral-Steroid",
+                "name1":"Allergic Rhinitis - Oral-Steroid"
+            },
+            {
+                "diagnosis_tags":"Nasal Spray",
+                "name1":"Allergic Rhinitis - Nasal Spray"
+            },
+            {
+                "diagnosis_tags":"Nasal drops-Spray",
+                "name1":"Allergic Rhinitis - Nasal Spray"
             }
         ]
     }

@@ -2,8 +2,8 @@
 import styled from 'styled-components'
 import TreeView from 'react-treeview';
 import 'react-treeview/react-treeview.css';
-import data from "../components/datasourse.json";
-//import date from "./dates.json";
+import data from "../details.json";
+import dates from "./dates.json";
 import React, { useState } from "react";
 
 const INITIAL_LIST = Array.from({ length: 75 }, () => false);
@@ -17,8 +17,26 @@ function Prescription() {
       });
 
       const [list] = useState(INITIAL_LIST)
+
+      const category=[];
+      data.map((node)=>{
+      if(!category.includes(node.diagnosis_category)){
+      category.push(node.diagnosis_category)
+      category.push([node.diagnosis_tags,[node.name]]);
+      }
+      else{
+      const index=category.indexOf(node.diagnosis_category);
+      if(!category[index+1].includes(node.diagnosis_tags)){
+        category[index+1].push(node.diagnosis_tags,[node.name]);
+      }
+      else{
+        const itag=category[index+1].indexOf(node.diagnosis_tags)+1;
+        category[index+1][itag].push(node.name);
+      }
+    }
+  })
       
-      const handleOnChange = (e,name1,i) => {
+      const handleOnChange = (e,name1) => {
         // Destructuring
         const { languages } = userinfo;
         const { response } = userinfo;
@@ -30,7 +48,7 @@ function Prescription() {
 
         // Case 1 : The user checks the box
         if (checked) {
-          COUNT_LIST[i]+=1;
+          //COUNT_LIST[i]+=1;
           setUserInfo({
             languages: [...languages, name1],
             response: [...response, name1]
@@ -39,19 +57,19 @@ function Prescription() {
       
         // Case 2  : The user unchecks the box
         else {
-          COUNT_LIST[i]-=1;
+          //COUNT_LIST[i]-=1;
           setUserInfo({
             languages: languages.filter((e) => e !== name1),
             response: response.filter((e) => e !== name1)
           });
         }
 
-        if(COUNT_LIST[i]>0){
-          INITIAL_LIST[i]=true;
-        }
-        else{
-          INITIAL_LIST[i]=false;
-        }
+        // if(COUNT_LIST[i]>0){
+          // INITIAL_LIST[i]=true;
+        // }
+        // else{
+          // INITIAL_LIST[i]=false;
+        // }
 
       };
 
@@ -65,31 +83,87 @@ function Prescription() {
                 </Title>
                 <Line/>
                 <Details>
-                {data.map((node,i)=>{
-                    const type=node.type;
-                    const label=<><input type="checkbox" checked={list[i]} id="mycheck" /><span> {type}</span></>
-                    return(
-                      <TreeView
-                      key={type + "|" +i}
-                        nodeLabel={label}
-                        defaultCollapsed={true}>
+                  <TreeView
+                    key="date"
+                    nodeLabel="Last filled prescription"
+                    defaultCollapsed={true}
+                    >
+                      {dates.map((node)=>{
+                        return(
+                          <div>
+                            <input 
+                            type="checkbox"
+                            onChange={(e)=>handleOnChange(e,node.date)}/>{node.date}<br/>
+                          </div>
+                        )
+                      })}
 
-                          {node.tags.map((person)=> {
-                          const label2 = <><input type="hidden" id="mycheck"/><span>{person.diagnosis_tags}</span> </>
-                            return(
-                              <TreeView
-                                nodeLabel={label2}
-                                key={person.diagnosis_tags}
-                                defaultCollapsed={true}>
+                    </TreeView>
+                    
+                  {category.map((node,i)=>{
+                    if(i%2==0){
+                      const clabel=<><input type="checkbox" checked={list[i]}/><span>{node}</span></>
+                      return(
+                        <TreeView
+                          nodeLabel={clabel}
+                          defaultCollapsed={true}
+                        >
+                        {
+                          category[i+1].map((tnode,j)=>{
+                            if(j%2==0){
+                              const tlabel=<><input type="checkbox" checked={list[i]}/><span>{tnode}</span></>
+                              return(
+                                <TreeView
+                                  nodeLabel={tlabel}
+                                  defaultCollapsed={true}
+                                >{
+                                  category[i+1][j+1].map((name)=>{
+                                    return(
+                                      <>
+                                      <input 
+                                        type="checkbox"
+                                        onChange={(e)=>handleOnChange(e,name)}
+                                        />{name}<br/>
+                                      </>
+                                    )
+                                  })
+                                }
+                                </TreeView>
+                              )
+                            }
+                          })
+                        }
+                        </TreeView>
+                      )
+                    }
+                  })
+                }
+                    
+                {/* {data.map((node,i)=>{ */}
+                    {/* // const type=node.type; */}
+                    {/* // const label=<><input type="checkbox" checked={list[i]} id="mycheck" /><span> {type}</span></> */}
+                    {/* // return( */}
+                       {/* <TreeView */}
+                       {/* key={type + "|" +i} */}
+                         {/* nodeLabel={label} */}
+                         {/* defaultCollapsed={true}> */}
 
-                                  <input 
-                                    type="checkbox"
-                                    onChange={(e)=>handleOnChange(e,person.name1,i )}/>{person.name1}<br />
+                          {/* {node.tags.map((person)=> { */}
+                           {/* const label2 = <><input type="hidden" id="mycheck"/><span>{person.diagnosis_tags}</span> </> */}
+                             {/* return( */}
+                               {/* <TreeView */}
+                                 {/* nodeLabel={label2} */}
+                                 {/* key={person.diagnosis_tags} */}
+                                 {/* defaultCollapsed={true}> */}
 
-                              </TreeView>
+                                  {/* <input  */}
+                                     {/* type="checkbox" */}
+                                     {/* onChange={(e)=>handleOnChange(e,person.name1,i )}/>{person.name1}<br /> */}
 
-                            );
-                          })}
+                              {/* </TreeView> */}
+
+                             {/* ); */}
+                          {/* })} */}
 
 
 
@@ -116,11 +190,11 @@ function Prescription() {
 
 
 
-</TreeView>
+{/* </TreeView> */}
 
                        
-                    );
-                  })}
+                    {/* ); */}
+                  {/* })} */}
                 </Details>
                 </Card>
             </Right>
